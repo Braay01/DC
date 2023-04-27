@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+<meta charset="utf-8">
+<title>Digital Content</title>
+
+<!-- Bootstrap -->
+<link th:href="@{/bootstrap/css/bootstrap.min.css}" rel="stylesheet"
+	type="text/css">
+<!-- Logo Pestaña -->
+<link rel="icon" th:href="@{/imgs/LOGO1.png}" />
+<!-- Font Awesome -->
+<link th:href="@{/fontawesome/css/fontawesome.min.css}" rel="stylesheet">
+<link th:href="@{/fontawesome/css/brands.min.css}" rel="stylesheet">
+<link th:href="@{/fontawesome/css/solid.min.css}" rel="stylesheet">
+</head>
+<body>
+
+	<!-- HEADER -->
+
+	<nav th:replace="~{layouts/header :: header}">Header</nav>
+
+<br>
+	<h4 class="span mx-2">¿Te gustan nuestro productos? pidelos hasta tu domicilio</h4>
+	
+	<div class="container container-fluid my-4" style="margin: auto;">
+		<div class="row m-1">
+			<div class="col-sm-12">
+				<div class="row border rounded detail">
+					<div class="col-3">
+						<img th:if="${producto.foto}"
+							th:src="@{'/cat/uploads/' + ${producto.foto}}"
+							style="width: 100%; height: 90%; margin: 0 auto;"
+							class="card-img-top my-3" alt="">
+					</div>
+					<div class="col-5" style="text-align: center;">
+						<div>
+							<br> <a> <b th:text="${producto.nombre}"
+								style="font-size: 200%;"></b>
+							</a>
+						</div>
+					</div>
+					<div class="col-2">
+						<div>
+							<br> <span>X</span> <span style="font-size: 30px">$[[${producto.precio}]]</span>
+						</div>
+					</div>
+					<div class="col-2">
+						<div>
+							<br>
+							<div
+								th:replace="controldecantidad :: control_cantidad(1, ${producto.idProducto})">Cantidad</div>
+							<button id="buttonAddCart" type="button" class="btn btn-danger"
+								data-bs-toggle="modal" data-bs-target="#myModal">
+								Agregar al Carrito<i class="fa-solid fa-cart-shopping"></i>
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<style>
+.detail {
+	-webkit-box-shadow: 10px 10px 5px 0px rgba(148, 148, 148, 1);
+	-moz-box-shadow: 10px 10px 5px 0px rgba(148, 148, 148, 1);
+	box-shadow: 10px 10px 5px 0px rgba(148, 148, 148, 1);
+}
+</style>
+
+	<script type="text/javascript">
+		
+		contextPath = "[[@{/}]]";
+		var crsfHeaderName = "[[${_csrf.headerName}]]";
+		var crsfValue = "[[${_csrf.token}]]";
+		var idProducto = "[[${producto.idProducto}]]";
+		
+	</script>
+
+	<!-- FOOTER -->
+
+	<footer th:replace="~{layouts/footer :: footer}">Footer</footer>
+
+	<div th:replace="~{layouts/Modals :: standard_modal2}">Modal
+		estandarte</div>
+
+	<!-- Script Bootstrap -->
+	<script th:src="@{/bootstrap/js/bootstrap.min.js}"
+		crossorigin="anonymous"></script>
+	<!-- JQuery -->
+	<script type="text/javascript" th:src="@{/JQuery/jquery-3.6.1.min.js}"></script>
+	<script type="text/javascript" th:src="@{/addCar.js}"></script>
+	<!-- DataTables -->
+	<script type="text/javascript"
+		th:src="@{/datatables/DataTables-1.12.1/js/jquery.dataTables.min.js}"></script>
+	<script type="text/javascript"
+		th:src="@{/datatables/DataTables-1.12.1/js/dataTables.bootstrap5.min.js}"></script>
+	<!-- JavaScript -->
+	<script type="text/javascript" th:src="@{/barrioJS/barrio.js}"></script>
+	<script type="text/javascript" th:src="@{/controldecantidad.js}"></script>
+</body>
+</html>

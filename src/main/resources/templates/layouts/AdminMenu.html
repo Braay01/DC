@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<div th:fragment="menu" class="d-flex flex-column flex-shrink-0 p-3 text-white bg-secondary" style="width: 180px;">
+    <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+      <span class="fs-4">OPCIONES</span>
+    </a>
+    <hr>
+    <ul class="nav nav-pills flex-column mb-auto">
+      <li class="nav-item">
+        <a th:href="@{/admin}" class="nav-link active" aria-current="page">
+          Home
+        </a>
+      </li>
+      <li>
+        <a class="align-items-center nav-link text-white" role="button" data-bs-toggle="collapse" data-bs-target="#dashboard-collapse1">
+          Productos
+        </a>
+        <div class="collapse" id="dashboard-collapse1">
+          <ul class="btn-toggle-nav  list-unstyled fw-normal pb-1 small">
+            <li><a th:href="@{/admin/producto}" class="link-dark text-decoration-none rounded">- Listado</a></li>
+          </ul>
+          <ul class="btn-toggle-nav  list-unstyled fw-normal pb-1 small">
+            <li><a th:href="@{/admin/categoria}" class="link-dark text-decoration-none rounded">- Categorias</a></li>
+          </ul>
+          <ul class="btn-toggle-nav  list-unstyled fw-normal pb-1 small">
+            <li><a th:href="@{/admin/genero}" class="link-dark text-decoration-none rounded">- Generos</a></li>
+          </ul>
+          <ul class="btn-toggle-nav  list-unstyled fw-normal pb-1 small">
+            <li><a th:href="@{/admin/color}" class="link-dark text-decoration-none rounded">- Colores</a></li>
+          </ul>
+          <ul class="btn-toggle-nav  list-unstyled fw-normal pb-1 small">
+            <li><a th:href="@{/admin/talla}" class="link-dark text-decoration-none rounded">- Talla</a></li>
+          </ul>
+          <ul class="btn-toggle-nav  list-unstyled fw-normal pb-1 small">
+            <li><a th:href="@{/admin/proveedor}" class="link-dark text-decoration-none rounded">- Proveedor</a></li>
+          </ul>
+        </div>
+      </li>
+      <li>
+        <a class="align-items-center nav-link text-white" role="button" data-bs-toggle="collapse" data-bs-target="#dashboard-collapse">
+          Entregas
+        </a>
+        <div class="collapse" id="dashboard-collapse">
+          <ul class="btn-toggle-nav  list-unstyled fw-normal pb-1 small">
+            <li><a th:href="@{/admin/barrio}" class="link-dark text-decoration-none rounded">- Barrios</a></li>
+          </ul>
+	<ul class="btn-toggle-nav  list-unstyled fw-normal pb-1 small">
+            <li><a th:href="@{/admin/devolucion}" class="link-primary text-decoration-none rounded">- Devolucion</a></li>
+          </ul>
+        </div>
+      </li>
+      <li>
+        <a class="align-items-center nav-link text-white" role="button" data-bs-toggle="collapse" data-bs-target="#dashboard-collapse2">
+          Asignar Roles
+        </a>
+        <div class="collapse" id="dashboard-collapse2">
+          <ul class="btn-toggle-nav  list-unstyled fw-normal pb-1 small">
+            <li><a th:href="@{/admin/usuario}" class="link-dark text-decoration-none rounded">- Usuarios</a></li>
+          </ul>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a th:href="@{/admin/inventario}" class="align-items-center nav-link text-white" aria-current="page">
+         	Inventario
+        </a>
+      </li>
+      <li class="nav-item">
+        <a th:href="@{/admin/compra}" class="align-items-center nav-link text-white" aria-current="page">
+         	Compras
+        </a>
+      </li>
+      <li class="nav-item">
+        <a th:href="@{/admin/entregasdom}" class="align-items-center nav-link text-white" aria-current="page">
+         	Historial de Entregas
+        </a>
+      </li>
+	 <li>
+        <a class="align-items-center nav-link text-white" role="button" data-bs-toggle="collapse" data-bs-target="#dashboard-collapse3">
+          Enviar Correo
+        </a>
+        <div class="collapse" id="dashboard-collapse3">
+          <ul class="btn-toggle-nav  list-unstyled fw-normal pb-1 small">
+            <li><a th:href="@{/mail/view}" class="link-dark text-decoration-none rounded">- Personal</a></li>
+          </ul>
+          <ul class="btn-toggle-nav  list-unstyled fw-normal pb-1 small">
+            <li><a th:href="@{/mail/view-mails}" class="link-dark text-decoration-none rounded">- Masivo</a></li>
+          </ul>
+        </div>
+      </li>
+    </ul>
+    <hr>
+    <div class="dropdown">
+      <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+        <img th:src="@{/imgs/LOGO1.png}" alt="" width="32" height="32" class="me-2">
+        <strong>DC</strong>
+      </a>
+    </div>
+  </div>
+</body>
+</html>
